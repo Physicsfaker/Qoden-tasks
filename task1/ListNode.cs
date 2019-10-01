@@ -1,21 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 
 namespace task1
 {
     public class ListNode<T>
     {
-        T value;           //base
-        ListNode<T> next;      //base ListNode next;
+        T value;
+        ListNode<T> next;
 
-        public ListNode(T data)
+        public void Insert(T newValue)
         {
-
+            if (next == null)
+            {
+                next = new ListNode<T>(newValue);
+            }
+            else
+            {
+                next.Insert(newValue);
+            }
         }
 
-        //public void Insert(int newValue); //base
+        public ListNode(T newValue)
+        {
+            value = newValue;
+        }
+
+        public void ShowValues()
+        {
+            if (next == null)
+            {
+                Console.Write($"{value} ");
+            }
+            else
+            {
+                Console.Write($"{value} ");
+                next.ShowValues();
+            }
+        }
     }
+
+
 }
